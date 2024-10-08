@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Friends</title>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/friends.css') }}"
+    />
+  </head>
+  <body>
     <h1>Friends</h1>
     <ul>
-        {% for friend in friends %}
-        <li><a href="{{ url_for('user_profile', user_id=friend.id) }}">{{ friend.username }}</a></li>
-        {% endfor %}
+      {% for friend in friends %}
+      <li>
+        <a href="{{ url_for('user_profile', user_id=friend.id) }}"
+          >{{ friend.username }}</a
+        >
+      </li>
+      {% endfor %}
     </ul>
-</body>
+  </body>
 </html>

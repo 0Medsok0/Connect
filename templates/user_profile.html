@@ -1,23 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>Document</title>
-</head>
-<body>
-{% for post in posts %}
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/user_profile.css') }}"
+    />
+  </head>
+  <body>
+    {% for post in posts %}
     <div>
-        <p>{{ post.content }}</p>
-        <form method="POST" action="{{ url_for('like_post', post_id=post.id) }}">
-            <input type="submit" value="Like">
-            <span class="like-count">{{ post.likes|length }}</span>
-        </form>
+      <p>{{ post.content }}</p>
+      <form method="POST" action="{{ url_for('like_post', post_id=post.id) }}">
+        <input type="submit" value="Like" />
+        <span class="like-count">{{ post.likes|length }}</span>
+      </form>
 
-        <form method="POST" action="{{ url_for('add_comment', post_id=post.id) }}">
-            <textarea name="content" required></textarea>
-            <input type="submit" value="Comment">
-        </form>
+      <form
+        method="POST"
+        action="{{ url_for('add_comment', post_id=post.id) }}"
+      >
+        <textarea name="content" required></textarea>
+        <input type="submit" value="Comment" />
+      </form>
     </div>
-{% endfor %}
-<script src="{{ url_for('static', filename='js/user_profile.js') }}"></script>
-</body>
+    {% endfor %}
+    <script src="{{ url_for('static', filename='js/user_profile.js') }}"></script>
+  </body>
 </html>
