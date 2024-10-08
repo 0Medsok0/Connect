@@ -30,7 +30,6 @@ class User(UserMixin, db.Model):
                               secondaryjoin=(friendships.c.friend_id == id),
                               backref=db.backref('friends_of', lazy='dynamic'),
                               lazy='dynamic')
-    avatar_url = db.Column(db.String(255), nullable=True)
 
 
 class Message(db.Model):
@@ -250,7 +249,7 @@ def community_page(community_id):
     return render_template('community.html', community=community, posts=posts)
 
 
-# Перейти в профиль друга
+# Перейти в профиль друга(Посомтреь его посты)(Есть возможность оставить коментарий и поставить лайк)
 @app.route('/user/<int:user_id>')
 @login_required
 def user_profile(user_id):
