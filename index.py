@@ -8,9 +8,6 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///social_network.db'
 app.config['SECRET_KEY'] = 'your_secret_key'
 
-UPLOAD_FOLDER = 'C:/Users/Acer/Downloads/'
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 db = SQLAlchemy(app)
 login_manager = LoginManager()
