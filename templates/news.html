@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News</title>
+</head>
+<body>
+    <h1>Friends' Posts</h1>
+    {% for post in friends_posts %}
+        <p>{{ post.content }}</p>
+    {% endfor %}
+    <h1>Community Posts</h1>
+    {% for post in community_posts %}
+        <p>{{ post.content }}</p>
+    {% endfor %}
+</body>
+</html>

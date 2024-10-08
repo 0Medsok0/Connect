@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Friends</title>
+</head>
+<body>
+    <h1>Friends</h1>
+    <ul>
+        {% for friend in friends %}
+        <li><a href="{{ url_for('user_profile', user_id=friend.id) }}">{{ friend.username }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

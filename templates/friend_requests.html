@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Friend Requests</title>
+</head>
+<body>
+    <h1>Friend Requests</h1>
+    <ul>
+        {% for friend_request in friend_requests %}
+            <li>
+                <strong>From:</strong> {{ friend_request.sender.username }}<br>
+                <a href="{{ url_for('handle_friend_request', request_id=friend_request.id, action='accept') }}">Accept</a>
+                <a href="{{ url_for('handle_friend_request', request_id=friend_request.id, action='decline') }}">Decline</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

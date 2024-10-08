@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome, {{ current_user.username }}!</h1>
+    <img src="{{ current_user.avatar_url }}" alt="Avatar">
+
+    <form method="POST" action="{{ url_for('home') }}">
+        <textarea name="content" required style="resize: none; width: 10%; height: 100px;"></textarea>
+        <input type="submit" value="Post">
+    </form>
+
+    <a href="{{ url_for('logout') }}">Logout</a>
+    <a href="{{ url_for('community_page', community_id=1) }}">Community view</a>
+    <a href="{{ url_for('send_message', user_id=2) }}">Send Message</a>
+    <a href="{{ url_for('create_community') }}">Create Community</a>
+    <a href="{{ url_for('add_friends') }}">Add friends</a>
+    <a href="{{ url_for('friends') }}">friends</a>
+    <a href="{{ url_for('inbox') }}">inbox</a>
+    <a href="{{ url_for('friend_requests') }}">friends_requests</a>
+
+    {% for post in posts %}
+        <p>{{ post.content }}</p>
+        <p>Likes: {{ post.likes|length }}</p>
+        <h3>Comments:</h3>
+        {% for comment in post.comments %}
+            <p>{{ comment.content }}</p>
+        {% endfor %}
+    {% endfor %}
+
+
+</body>
+</html>

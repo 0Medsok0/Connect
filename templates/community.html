@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Community</title>
+</head>
+<body>
+    <h1>{{ community.name }} Community</h1>
+    {% for post in posts %}
+        <p>{{ post.content }}</p>
+    {% endfor %}
+</body>
+</html>

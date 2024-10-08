@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Message</title>
+</head>
+<body>
+    <h1>Send Message</h1>
+    <form method="POST" action="{{ url_for('send_message') }}">
+        <label for="recipient">Recipient:</label>
+        <select name="recipient" id="recipient" required>
+            {% for friend in friends %}
+                <option value="{{ friend.id }}">{{ friend.username }}</option>
+            {% endfor %}
+        </select>
+        <textarea name="content" required></textarea>
+        <input type="submit" value="Send">
+    </form>
+</body>
+</html>
