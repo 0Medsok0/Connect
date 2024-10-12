@@ -5,6 +5,17 @@ body {
   background-color: #f0f0f0;
 }
 
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+  margin: 0 auto;
+}
+
+.community-content {
+  width: 600px;
+}
+
 h1 {
   text-align: center;
   color: #333;
@@ -19,4 +30,24 @@ p {
   margin-bottom: 20px;
   font-size: 18px;
   line-height: 1.5;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 200px;
+  padding: 30px;
+}
+
+.links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  transition: color 0.3s;
+  margin-bottom: 10px;
+}
+
+.links a:hover {
+  color: #555;
 }

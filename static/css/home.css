@@ -38,16 +38,6 @@ h1 {
   background-color: #f0f0f0;
 }
 
-.form-news-post {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.form-news-post form {
-  display: flex;
-  flex-direction: column;
-}
 
 .po {
   background-color: #fff;
@@ -61,16 +51,35 @@ h1 {
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .po h3 {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: lighter;
   margin-top: 20px;
   margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #333;
+}
+.po h4 {
+  font-weight: normal;
+}
+
+.form-news-post {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  margin-top: 20px;
+
+}
+
+.form-news-post form {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  margin-right: 60%;
 }
 
 .form-news-post input[type="submit"] {
@@ -91,6 +100,14 @@ h1 {
   outline: none;
 }
 
+.form-news-post textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+}
+
 footer {
   background-color: #333;
   color: #fff;
@@ -104,4 +121,102 @@ footer {
 footer p {
   font-size: 14px;
   margin: 0;
+}
+
+.user-info-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Стили для класса user-info-section */
+.user-info-section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* margin-top: 20px;
+  /* max-width: 600px;  */
+  width: 1320px;
+  flex: 1;
+  margin-left: 25%;
+}
+
+.user-info-section h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.user-info-section p {
+  font-size: 16px;
+  color: #555;
+  margin: 5px 0;
+}
+
+.user-info-section strong {
+  font-weight: bold;
+  color: #333;
+}
+
+.user-info-section pre {
+  background-color: #eaeaea;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 10px;
+  white-space: pre-wrap; /* Для переноса текста на новую строку */
+}
+
+/* Стили для класса avatar-us-us */
+.avatar-us-us {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* margin-top: 20px; */
+  /* text-align: center; */
+  flex: 1; /**/
+  width: 400px;
+  float: left;
+}
+
+.avatar-us-us h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.avatar-us-us img {
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+
+.avatar-us-us input[type="file"] {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.avatar-us-us input[type="submit"] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.avatar-us-us input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Стили для сообщения об успешной загрузке аватара */
+.avatar-us-us p {
+  font-size: 16px;
+  color: #28a745;
+  margin-top: 10px;
 }

@@ -11,14 +11,21 @@ h1 {
   margin-bottom: 20px;
 }
 
-ul {
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+  margin: 0 auto;
+}
+
+.friends-list {
   list-style-type: none;
   padding: 0;
-  margin: 0 auto;
+  margin: 0;
   width: 600px;
 }
 
-li {
+.friends-list li {
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
@@ -26,13 +33,21 @@ li {
   margin-bottom: 20px;
 }
 
-a {
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 200px;
+}
+
+.links a {
   text-decoration: none;
   color: #333;
   font-size: 18px;
   transition: color 0.3s;
+  margin-bottom: 10px;
 }
 
-a:hover {
+.links a:hover {
   color: #555;
 }
