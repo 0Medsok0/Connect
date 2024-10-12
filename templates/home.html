@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link
       rel="stylesheet"
@@ -8,39 +10,75 @@
     />
   </head>
   <body>
-    <h1>Welcome, {{ current_user.username }}!</h1>
-
+    <h1>Connect</h1>
     <div class="all-links">
-      <a href="{{ url_for('logout') }}">Logout</a>
       <a href="{{ url_for('community_page', community_id=1) }}"
-        >Community view</a
+      >Сообщества</a
       >
-      <a href="{{ url_for('send_message', user_id=2) }}">Send Message</a>
-      <a href="{{ url_for('create_community') }}">Create Community</a>
-      <a href="{{ url_for('add_friends') }}">Add friends</a>
-      <a href="{{ url_for('friends') }}">friends</a>
-      <a href="{{ url_for('inbox') }}">inbox</a>
-      <a href="{{ url_for('friend_requests') }}">friends_requests</a>
+      <a href="{{ url_for('send_message', user_id=2) }}">Отправить сообщение</a>
+  
+      <a href="{{ url_for('friends') }}">Друзья</a>
+      <a href="{{ url_for('inbox') }}">Почта</a>
+      <a href="{{ url_for('logout') }}">Выйти</a>
     </div>
 
-    <div class="form-news-post">
-      <form method="POST" action="{{ url_for('home') }}">
-        <textarea
-          name="content"
-          required
-          style="resize: none; width: 500px; height: 140px; margin-bottom: 10px"
-        ></textarea>
-        <input type="submit" value="Сделать пост" />
-      </form>
+    <div calss='user-info-container'>
+      <div class="avatar-us-us">
+        {% if current_user %}
+        <h2>{{ current_user.username }}</h2>
+        {% if current_user.avatar %}
+        <img
+          src="{{ url_for('avatar', filename=current_user.avatar) }}"
+          alt="User Avatar"
+          width="300"
+        />
+        {% endif %}
+        <form
+          action="{{ url_for('upload_avatar') }}"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <input type="file" name="file" accept="image/*" required />
+          <input type="hidden" name="user_id" value="{{ current_user.id }}" />
+          <input type="submit" value="Загрузить аватар" />
+        </form>
+        {% if uploaded_successfully %}
+        <p>Avatar uploaded successfully!</p>
+        {% endif %} {% else %}
+        <p>No user found.</p>
+        {% endif %}
+  
+      </div>
+      <div class="user-info-section">
+        <h2>Обо мне</h2>
+        <p><strong>Страна:</strong> {{ user_info.country }}</p>
+        <p><strong>Возраст:</strong> {{ user_info.age }}</p>
+        <p><strong>Город:</strong> {{ user_info.city }}</p>
+        <p><strong>Жизненная позиция:</strong></p>
+        <pre>{{ user_info.life_position }}</pre>
+        <p><strong>Интересы:</strong></p>
+        <pre>{{ user_info.interests }}</pre>
+        <a href="{{ url_for('about_me') }}">Редактировать</a>
+      </div>
+      <div class="form-news-post">
+        <form method="POST" action="{{ url_for('home') }}">
+          <textarea
+            name="content"
+            required
+            style="resize: none; width: 500px; height: 50px; margin-bottom: 15px"
+          ></textarea>
+          <input type="submit" value="Сделать пост" />
+        </form>
+      </div>
     </div>
 
     <div class="po">
       {% for post in posts %}
       <p>{{ post.content }}</p>
-      <p>Лайки: {{ post.likes|length }}</p>
+      <h3>Лайки: {{ post.likes|length }}</h3>
       <h3>Комментраии:</h3>
       {% for comment in post.comments %}
-      <p>{{ comment.content }}</p>
+      <h4>{{ comment.content }}</h4>
       {% endfor %} {% endfor %}
     </div>
 

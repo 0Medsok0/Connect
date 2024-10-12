@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/about_me_form.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Обо мне</h1>
+    <form method="POST" action="{{ url_for('update_about_me') }}">
+      <label for="country">Страна:</label>
+      <select name="country" id="country">
+        <option value="Afghanistan">Афганистан</option>
+        <option value="Russia">Россия</option>
+        <option value="USA">США</option>
+        <option value="Australia">Австралия</option>
+        <option value="Africa">Африка</option></select
+      ><br /><br />
+      <label for="age">Возраст:</label>
+      <select name="age" id="age">
+        <option value="13-18">13-18</option>
+        <option value="19-25">19-25</option>
+        <option value="25-31">25-31</option>
+        <option value="31-45">31-45</option>
+        <option value="45-55">45-55</option>
+        <option value="55-100">55 и больше</option></select
+      ><br /><br />
+
+      <label for="city">Город:</label>
+      <input type="text" name="city" id="city" required /><br /><br />
+
+      <label for="life_position">Жизненная позиция:</label>
+      <textarea
+        name="life_position"
+        id="life_position"
+        rows="4"
+        cols="50"
+        required
+      ></textarea
+      ><br /><br />
+
+      <label for="interests">Интересы:</label>
+      <textarea
+        name="interests"
+        id="interests"
+        rows="4"
+        cols="50"
+        required
+      ></textarea
+      ><br /><br />
+
+      <input type="submit" value="Сохранить" />
+    </form>
+  </body>
+</html>

@@ -8,14 +8,14 @@
     />
 </head>
 <body>
-    <h1>Add Friends</h1>
+    <h1>Добавить в друзья</h1>
     <ul>
         {% for user in users %}
             <li>
                 {{ user.username }}
                 <form method="POST" action="{{ url_for('add_friends') }}">
                     <input type="hidden" name="user_id" value="{{ user.id }}">
-                    <input type="submit" value="Add Friend">
+                    <input type="submit" value="Добавить +">
                 </form>
             </li>
         {% endfor %}

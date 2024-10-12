@@ -8,12 +8,12 @@
     />
   </head>
   <body>
-    <h1>Inbox</h1>
+    <h1>Почта</h1>
     <ul>
       {% for message in messages %}
       <li>
-        <strong>From:</strong> {{ message.sender.username }}<br />
-        <strong>Message:</strong> {{ message.content }}
+        <strong>От:</strong> {{ message.sender.username }}<br />
+        <strong>Сообщение:</strong> {{ message.content }}
       </li>
       {% endfor %}
     </ul>

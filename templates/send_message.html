@@ -8,16 +8,16 @@
     />
   </head>
   <body>
-    <h1>Send Message</h1>
+    <h1>Отправить сообщение</h1>
     <form method="POST" action="{{ url_for('send_message') }}">
-      <label for="recipient">Recipient:</label>
+      <label for="recipient">Получатель:</label>
       <select name="recipient" id="recipient" required>
         {% for friend in friends %}
         <option value="{{ friend.id }}">{{ friend.username }}</option>
         {% endfor %}
       </select>
       <textarea name="content" required style="resize: none"></textarea>
-      <input type="submit" value="Send" />
+      <input type="submit" value="Отправить" />
     </form>
   </body>
 </html>

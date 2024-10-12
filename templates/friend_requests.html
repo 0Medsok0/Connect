@@ -8,18 +8,18 @@
     />
   </head>
   <body>
-    <h1>Friend Requests</h1>
+    <h1>Запросы в друзья</h1>
     <ul>
       {% for friend_request in friend_requests %}
       <li>
-        <strong>From:</strong> {{ friend_request.sender.username }}<br />
+        <strong>От:</strong> {{ friend_request.sender.username }}<br />
         <a
           href="{{ url_for('handle_friend_request', request_id=friend_request.id, action='accept') }}"
-          >Accept</a
+          >Принять</a
         >
         <a
           href="{{ url_for('handle_friend_request', request_id=friend_request.id, action='decline') }}"
-          >Decline</a
+          >Откланить</a
         >
       </li>
       {% endfor %}

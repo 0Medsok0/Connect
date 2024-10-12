@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Community</title>
+  <head>
+    <title>Сообщества</title>
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/community.css') }}"
     />
-</head>
-<body>
-    <h1>{{ community.name }} Community</h1>
-    {% for post in posts %}
+  </head>
+  <body>
+    <h1>Сообщества</h1>
+    <div class="container">
+      <div class="community-content">
+        <h1>Сообщество: {{ community.name }}</h1>
+        {% for post in posts %}
         <p>{{ post.content }}</p>
-    {% endfor %}
-</body>
+        {% endfor %}
+      </div>
+      <div class="links">
+        <a href="{{ url_for('create_community') }}">Создать сообщество</a>
+      </div>
+    </div>
+  </body>
 </html>

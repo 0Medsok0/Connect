@@ -8,15 +8,21 @@
     />
   </head>
   <body>
-    <h1>Friends</h1>
-    <ul>
-      {% for friend in friends %}
-      <li>
-        <a href="{{ url_for('user_profile', user_id=friend.id) }}"
-          >{{ friend.username }}</a
-        >
-      </li>
-      {% endfor %}
-    </ul>
+    <h1>Друзья</h1>
+    <div class="container">
+      <ul class="friends-list">
+        {% for friend in friends %}
+        <li>
+          <a href="{{ url_for('user_profile', user_id=friend.id) }}"
+            >{{ friend.username }}</a
+          >
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="links">
+        <a href="{{ url_for('add_friends') }}">Добавить в друзья</a>
+        <a href="{{ url_for('friend_requests') }}">Запросы в друзья</a>
+      </div>
+    </div>
   </body>
 </html>
